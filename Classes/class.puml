@@ -1,0 +1,25 @@
+@startuml
+
+    ' Classes principais do sistema
+    class Usuario{}
+
+    class Aluno{}
+
+    class Bibliotecario{}
+
+    class Administrador{}
+
+    class Livro{}
+
+    class Emprestimo{}
+
+    ' herança entre classes
+    Usuario <|-- Aluno 
+    Usuario <|-- Bibliotecario 
+    Usuario <|-- Administrador 
+
+    ' Associações entre classes
+    Usuario "1" -- "0..5" Emprestimo
+    Livro "1" -- "0..*" Emprestimo
+
+@enduml
