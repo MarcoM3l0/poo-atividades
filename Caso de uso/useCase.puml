@@ -1,0 +1,54 @@
+@startuml
+    left to right direction
+    skinparam packageStyle rectangle
+
+    actor "Aluno/Professor" as AP
+    actor "Bibliotecário" as B
+    actor "Administrador" as A
+
+    rectangle "Sistema de Biblioteca" {
+
+        ' Todos os atores
+        usecase "Buscar livros" as UC1
+        usecase "Reservar livros" as UC2
+        usecase "Renovar empréstimos" as UC3
+
+        'Bibliotecário e Administrador
+        usecase "Aprovar empréstimos" as UC4
+        usecase "Registrar devolução" as UC5
+
+        ' Apenas Administrador
+        usecase "Gerenciar cadastros" as UC6
+        usecase "Excluir registros" as UC7
+        usecase "Gerar relatórios" as UC8
+        usecase "Bloquear usuários" as UC9
+
+        ' Sistema
+        usecase "Notificar resevar" as UC10
+        usecase "Multas por atraso" as UC11
+        usecase "Verificar Reservas" as UC12
+
+    }
+
+    ' Relacionamentos entre os casos de uso e os atores
+    AP --> UC1
+    AP --> UC2
+    AP --> UC3
+
+    'bibliotecário e administrador
+    B --> UC4
+    B --> UC5
+
+    ' apenas administrador
+    A --> UC6
+    A --> UC7
+    A --> UC8
+    A --> UC9
+
+    'fluxo do sistema
+    UC2 --> UC10 : <<include>>
+    UC5 --> UC11 : <<include>>
+    UC12 ..|> UC3 : <<extend>>\nSe houver reserva, não pode renovar!
+    UC12 --> UC10 : <<include>>
+    UC9 --> UC11 : <<include>>\nUsuário com multas pode ser bloqueado
+@enduml
