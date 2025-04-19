@@ -1,0 +1,30 @@
+@startuml
+
+    actor "Aluno" as aluno
+
+    participant "Interface do\nSistema" as ui
+    participant "Controlador\nEmpréstimos" as sistema
+    participant "Banco de\nDados" as db
+
+    'Solicitar Empréstimo de Livro'
+    aluno -> ui++: Solicitar empréstimo de livro
+    ui -> sistema++: solicitarEmprestimo(matrícula)
+
+
+    sistema -> db++: getEmprestimosAtivos(matrícula)
+    db --> sistema--: listaEmprestimos (quantidade: int)
+
+    'Verifica se o aluno já possui 5 empréstimos ativos'
+    alt if listaEmprestimos.size() <= 5
+        sistema -> db++: createEmprestimo(matrícula, livro)
+        db --> sistema--: emprestimoCriado
+        sistema --> ui--: empréstimoAutorizado
+        ui --> aluno--: Empréstimo aprovado!
+
+    else else
+        sistema --> ui--: erroLimiteAtingido
+        ui --> aluno--: Erro: Limite de 5 empréstimos atingido!
+    end
+
+
+@enduml
