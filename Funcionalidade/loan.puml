@@ -1,0 +1,31 @@
+@startuml
+
+start
+
+:Solicitar renovação de empréstimo;
+
+:Verificar número de renovações anteriores;
+if (Já renovou?) then (Sim)
+  :**Exibir erro**:\n"Renovação não permitida!";
+  stop
+else (Não)
+
+  :Verificar reservas do livro;
+  if (Livro reservado?) then (Sim)
+    :**Exibir aviso**:\n"Livro reservado.\nRenovação não permitida.";
+    stop
+  else (Não)
+
+    :Verificar multas pendentes do usuário;
+    if (Multas pendentes?) then (Sim)
+      :**Exibir erro**:\n"Regularize suas multas para renovar.";
+      stop
+    else (Não)
+      :**Exibir sucesso**:\n"Renovação concluída!\nNova devolução: [DATA]";
+
+      stop
+    endif
+  endif
+endif
+
+@enduml
