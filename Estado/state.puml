@@ -1,0 +1,19 @@
+@startuml
+
+[*] --> Disponível
+
+state "Disponível" as disp
+state "Reservado" as res
+state "Emprestado" as emp 
+
+disp --> res : reserva solicitada
+disp --> emp : empréstimo realizado
+
+res --> emp : retirada efetuada
+res --> disp : reserva cancelada
+
+emp --> disp : devolução efetuada
+emp --> res : reserva feita\ndurante empréstimo
+
+
+@enduml
