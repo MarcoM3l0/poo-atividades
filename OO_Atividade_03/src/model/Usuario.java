@@ -9,7 +9,7 @@ public class Usuario {
 	private String name;
 	private TipoUsuario tipo;
 	private List<Emprestimo> emprestimoAtivos = new ArrayList<>();
-	private List<Reseva> resevas = new ArrayList<>();
+	private List<Reserva> resevas = new ArrayList<>();
 	
 	//  Construtor
 	public Usuario(int id, String name, TipoUsuario tipo) {
@@ -18,7 +18,24 @@ public class Usuario {
 		this.tipo = tipo;
 	}
 
+
 	// Get Set
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public TipoUsuario getTipo() {
 		return tipo;
 	}
@@ -27,22 +44,22 @@ public class Usuario {
 		this.tipo = tipo;
 	}
 
-	public list<Emprestimo> getEmprestimoAtivos() {
+	public List<Emprestimo> getEmprestimoAtivos() {
 		return emprestimoAtivos;
 	}
 
-	public void setEmprestimoAtivos(list<Emprestimo> emprestimoAtivos) {
+	public void setEmprestimoAtivos(List<Emprestimo> emprestimoAtivos) {
 		this.emprestimoAtivos = emprestimoAtivos;
 	}
 
-	public list<Reseva> getResevas() {
+	public List<Reserva> getResevas() {
 		return resevas;
 	}
 
-	public void setResevas(list<Reseva> resevas) {
+	public void setResevas(List<Reserva> resevas) {
 		this.resevas = resevas;
 	}
-	
+
 	
 }
 
