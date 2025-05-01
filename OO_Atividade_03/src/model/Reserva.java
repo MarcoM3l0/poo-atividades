@@ -9,7 +9,7 @@ public class Reserva {
 	private Usuario usuario;
 	private LocalDate dataReseva;
 	
-	public Reserva(int id, Livro livro, Usuario usuario, LocalDate dataReseva) {
+	public Reserva(int id, Livro livro, Usuario usuario) {
 		this.id = id;
 		this.livro = livro;
 		this.usuario = usuario;
