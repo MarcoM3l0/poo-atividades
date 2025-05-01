@@ -12,8 +12,7 @@ public class Emprestimo {
 	private boolean renovado = false;
 	
 	// Construtor
-	public Emprestimo(int id, Livro livro, Usuario usuario, LocalDate dataEmprestimo, LocalDate dataDevolucao,
-			boolean renovado) {
+	public Emprestimo(int id, Livro livro, Usuario usuario, LocalDate dataEmprestimo) {
 		this.id = id;
 		this.livro = livro;
 		this.usuario = usuario;
