@@ -8,7 +8,7 @@ public class Usuario {
 	private int id;
 	private String name;
 	private TipoUsuario tipo;
-	private List<Emprestimo> emprestimoAtivos = new ArrayList<>();
+	private List<Emprestimo> emprestimosAtivos = new ArrayList<>();
 	private List<Reserva> resevas = new ArrayList<>();
 	
 	//  Construtor
@@ -18,6 +18,9 @@ public class Usuario {
 		this.tipo = tipo;
 	}
 
+	public boolean podeRealizarEmprestimo() {
+        return emprestimosAtivos.size() < 5;
+    }
 
 	// Get Set
 	public int getId() {
@@ -45,11 +48,11 @@ public class Usuario {
 	}
 
 	public List<Emprestimo> getEmprestimoAtivos() {
-		return emprestimoAtivos;
+		return emprestimosAtivos;
 	}
 
 	public void setEmprestimoAtivos(List<Emprestimo> emprestimoAtivos) {
-		this.emprestimoAtivos = emprestimoAtivos;
+		this.emprestimosAtivos = emprestimoAtivos;
 	}
 
 	public List<Reserva> getResevas() {
@@ -60,10 +63,11 @@ public class Usuario {
 		this.resevas = resevas;
 	}
 
-	
+	public enum TipoUsuario {
+		ALUNO, PROFESSOR, BIBLIOTECARIO, ADMINISTRADOR
+	}
 }
 
 
-enum TipoUsuario {
-	ALUNO, PROFESSOR, BIBLIOTECARIO, ADMINISTRADOR
-}
+
+
