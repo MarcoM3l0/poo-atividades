@@ -14,6 +14,7 @@ public class ServicoReserva {
 			
 			Reserva reseva = new Reserva(gerarId(), livro, user);
 			user.getResevas().add(reseva);
+			ServicoRenovacao.adicionarReserva(reseva);
 			
 		}
 		

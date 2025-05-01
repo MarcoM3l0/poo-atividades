@@ -27,4 +27,8 @@ public class ServicoRenovacao {
     		   );
     }
 	
+	 public static void adicionarReserva(Reserva reserva) {
+	        todasReservas.add(reserva);
+	    }
+	
 }
