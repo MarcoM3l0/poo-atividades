@@ -1,5 +1,6 @@
 // TesteList.java: Demonstra operações básicas e comparações de desempenho entre ArrayList e LinkedList
 import java.util.ArrayList;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -17,7 +18,7 @@ public class TesteList {
 
 
         // Cria uma lista dinâmica baseada em array (cresce dinamicamente)
-        List<###> list = new ArrayList<>();
+        List<Aluno> list = new ArrayList<>();
 
 		/*
 		 * Adiciona 3 alunos ao fim da lista (operação O(1) amortizada)
@@ -25,9 +26,9 @@ public class TesteList {
 		 * - João		2023009
 		 * - Miguel		2023001
 		 */
-        list.###(new Aluno("2023001", "Maria"));
-        list.###(new Aluno("2023009", "João"));
-        list.###(new Aluno("2023001", "Miguel"));
+        list.add(new Aluno("2023001", "Maria"));
+        list.add(new Aluno("2023009", "João"));
+        list.add(new Aluno("2023001", "Miguel"));
 
 		// Impressão da lista de alunos
 		System.out.printf("ArrayList após inserção no fim (default)\n");
@@ -39,9 +40,9 @@ public class TesteList {
 		 * - Maria S.	2023001
 		 * - Gessica	2023007
 		 */
-		list.###(new Aluno("2023005", "Joaquim"));
-		list.###(new Aluno("2023001", "Maria S."));
-		list.###(new Aluno("2023007", "Gessica"));
+		list.add(0, new Aluno("2023005", "Joaquim"));
+		list.add(0, new Aluno("2023001", "Maria S."));
+		list.add(0, new Aluno("2023007", "Gessica"));
 
 		// Impressão da lista de alunos
 		System.out.printf("\nArrayList após inserção no início\n");
@@ -53,9 +54,9 @@ public class TesteList {
 		 * - Denis		2023012
 		 * - Viviane	2023013
 		 */
-		list.###(###, new Aluno("2023011", "Rafael"));
-		list.###(###, new Aluno("2023012", "Denis"));
-		list.###(###, new Aluno("2023013", "Viviane"));
+		list.add(4, new Aluno("2023011", "Rafael"));
+		list.add(4, new Aluno("2023012", "Denis"));
+		list.add(4, new Aluno("2023013", "Viviane"));
 
 		// Impressão da lista de alunos
 		System.out.printf("\nArrayList após inserção no meio\n");
@@ -76,9 +77,9 @@ public class TesteList {
 		 * - João		2023009
 		 * - Miguel		2023001
 		 */
-		list.###(new Aluno("2023001", "Maria"));
-		list.###(new Aluno("2023009", "João"));
-		list.###(new Aluno("2023001", "Miguel"));
+		list.add(new Aluno("2023001", "Maria"));
+		list.add(new Aluno("2023009", "João"));
+		list.add(new Aluno("2023001", "Miguel"));
 
 		// Impressão da lista de alunos
 		System.out.printf("LinkedList após inserção no fim (default)\n");
@@ -90,9 +91,9 @@ public class TesteList {
 		 * - Maria S.	2023001
 		 * - Gessica	2023007
 		 */
-		list.###(new Aluno("2023005", "Joaquim"));
-		list.###(new Aluno("2023001", "Maria S."));
-		list.###(new Aluno("2023007", "Gessica"));
+		list.addFirst(new Aluno("2023005", "Joaquim"));
+		list.addFirst(new Aluno("2023001", "Maria S."));
+		list.addFirst(new Aluno("2023007", "Gessica"));
 
 		// Impressão da lista de alunos
 		System.out.printf("\nLinkedList após inserção no início\n");
@@ -104,9 +105,9 @@ public class TesteList {
 		 * - Denis		2023012
 		 * - Viviane	2023013
 		 */
-		list.###(###, new Aluno("2023011", "Rafael"));
-		list.###(###, new Aluno("2023012", "Denis"));
-		list.###(###, new Aluno("2023013", "Viviane"));
+		list.add(4, new Aluno("2023011", "Rafael"));
+		list.add(4, new Aluno("2023012", "Denis"));
+		list.add(4, new Aluno("2023013", "Viviane"));
 
 		// Impressão da lista de alunos
 		System.out.printf("\nLinkedList após inserção no meio\n");
@@ -147,7 +148,7 @@ public class TesteList {
     }
 
     // Insere QUANTIDADE de alunos no início da lista para medir performance
-    private static long medirTempoInsercaoNoInicio(List<###> list, int quantidade) {
+    private static long medirTempoInsercaoNoInicio(List<Aluno> list, int quantidade) {
         long inicio = System.currentTimeMillis();
         for (int i = 0; i < quantidade; i++) {
             list.addFirst(new Aluno("mat" + i, "aluno" + i)); // ArrayList O(n), LinkedList O(1)
@@ -156,7 +157,7 @@ public class TesteList {
     }
 
     // Acessa posições aleatórias na lista para medir tempo de get()
-    private static long medirTempoAcessoAleatorio(List<###> list, int quantidade) {
+    private static long medirTempoAcessoAleatorio(List<Aluno> list, int quantidade) {
         Random r = new Random(123456);
         long inicio = System.currentTimeMillis();
         for (int i = 0; i < quantidade; i++) {
