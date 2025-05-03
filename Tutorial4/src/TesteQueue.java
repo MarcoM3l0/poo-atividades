@@ -1,6 +1,7 @@
 // -----------------------------------------------------------
 // TesteQueue.java: Demonstra uso de Queue com LinkedList e PriorityQueue
 import java.util.LinkedList;
+
 import java.util.PriorityQueue;
 import java.util.Queue;
 
@@ -17,7 +18,7 @@ public class TesteQueue {
 		System.out.println("Parte 1: Fila FIFO com LinkedList\n");
 
 		// Definição de uma fila baseado em um LinkedList
-		Queue<###> queue = new LinkedList<>();
+		Queue<Aluno> queue = new LinkedList<>();
 
 		/*
 		 * Adição dos alunos na fila
@@ -25,9 +26,9 @@ public class TesteQueue {
 		 * - João		2023009
 		 * - Miguel		2023001
 		 */
-		queue.###(new Aluno("2023001", "Maria"));
-		queue.###(new Aluno("2023009", "João"));
-		queue.###(new Aluno("2023001", "Miguel"));
+		queue.add(new Aluno("2023001", "Maria"));
+		queue.add(new Aluno("2023009", "João"));
+		queue.add(new Aluno("2023001", "Miguel"));
 
 		// Impressão da fila de alunos
 		System.out.printf("LinkedList após primeira inserção\n");
@@ -39,9 +40,9 @@ public class TesteQueue {
 		 * - Maria S.	2023001
 		 * - Gessica	2023007
 		 */
-		queue.###(new Aluno("2023005", "Joaquim"));
-		queue.###(new Aluno("2023001", "Maria S."));
-		queue.###(new Aluno("2023007", "Gessica"));
+		queue.add(new Aluno("2023005", "Joaquim"));
+		queue.add(new Aluno("2023001", "Maria S."));
+		queue.add(new Aluno("2023007", "Gessica"));
 
 		// Impressão da fila de alunos
 		System.out.printf("\nLinkedList após segunda inserção\n");
@@ -62,9 +63,9 @@ public class TesteQueue {
 		 * - João		2023009
 		 * - Miguel		2023001
 		 */
-		queue.###(new Aluno("2023001", "Maria"));
-		queue.###(new Aluno("2023009", "João"));
-		queue.###(new Aluno("2023001", "Miguel"));
+		queue.add(new Aluno("2023001", "Maria"));
+		queue.add(new Aluno("2023009", "João"));
+		queue.add(new Aluno("2023001", "Miguel"));
 
 		// Impressão da fila de alunos
 		System.out.printf("PriorityQueue (matrícula) após primeira inserção\n");
@@ -76,9 +77,9 @@ public class TesteQueue {
 		 * - Maria S.	2023001
 		 * - Gessica	2023007
 		 */
-		queue.###(new Aluno("2023005", "Joaquim"));
-		queue.###(new Aluno("2023001", "Maria S."));
-		queue.###(new Aluno("2023007", "Gessica"));
+		queue.add(new Aluno("2023005", "Joaquim"));
+		queue.add(new Aluno("2023001", "Maria S."));
+		queue.add(new Aluno("2023007", "Gessica"));
 
 		// Impressão da fila de alunos
 		System.out.printf("\nPriorityQueue (matrícula) após segunda inserção\n");
@@ -99,9 +100,9 @@ public class TesteQueue {
 		 * - João		2023009
 		 * - Miguel		2023001
 		 */
-		queue.###(new Aluno("2023001", "Maria"));
-		queue.###(new Aluno("2023009", "João"));
-		queue.###(new Aluno("2023001", "Miguel"));
+		queue.add(new Aluno("2023001", "Maria"));
+		queue.add(new Aluno("2023009", "João"));
+		queue.add(new Aluno("2023001", "Miguel"));
 
 		// Impressão da fila de alunos
 		System.out.printf("PriorityQueue (nome) após primeira inserção\n");
@@ -113,9 +114,9 @@ public class TesteQueue {
 		 * - Maria S.	2023001
 		 * - Gessica	2023007
 		 */
-		queue.###(new Aluno("2023005", "Joaquim"));
-		queue.###(new Aluno("2023001", "Maria S."));
-		queue.###(new Aluno("2023007", "Gessica"));
+		queue.add(new Aluno("2023005", "Joaquim"));
+		queue.add(new Aluno("2023001", "Maria S."));
+		queue.add(new Aluno("2023007", "Gessica"));
 
 		// Impressão da fila de alunos
 		System.out.printf("\nPriorityQueue (nome) após segunda inserção\n");
@@ -123,7 +124,7 @@ public class TesteQueue {
 	}
 
     // Remove e imprime cada elemento da fila até esvaziar (poll retorna nulo se vazia)
-    private static void imprimirAlunos(Queue<###> queue) {
+    private static void imprimirAlunos(Queue<Aluno> queue) {
         System.out.println("Lista de alunos:");
         int i = 0;
         while (!queue.isEmpty()) {
