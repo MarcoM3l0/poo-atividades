@@ -1,13 +1,3 @@
-# Repositório de POO
+# Atividade 4: Collections e Exceptions
 
-Este repositório reúne todas as atividades, exercícios e projetos da disciplina de Programação Orientada a Objetos (POO). Cada atividade está isolada em uma branch própria, para facilitar o histórico e o versionamento.
-
-## Índice de Atividades
-
-| Atividade   | Branch               | Descrição                                    |
-|-------------|----------------------|----------------------------------------------|
-| Atividade 1 | `Nan`                | O próprio repositório    |
-| Atividade 2 | `OO-Atividade-02`           |  Atividade 2 – Modelagem UML para um sistema de biblioteca. A modelagem foi feita utilizando PlantUML.   |
-| Atividade 3 | `OO-Atividade-03-main`           |  Atividade 3: Sistema de Gerenciamento de Biblioteca   |
-| Atividade 4 | `OO-Atividade-04`           |  Atividade 4: COLLECTIONS E EXCEPTIONS   |
-| …           | …                    | …                                            |
+Esta atividade aborda o uso do **Collections Framework** e o tratamento de **exceções** em Java, com foco na implementação de estruturas de dados e manipulação de erros em cenários reais. O projeto é dividido em passos que exploram diferentes interfaces, classes e estratégias para armazenamento, ordenação e gerenciamento de objetos, além de técnicas robustas para lidar com exceções.
