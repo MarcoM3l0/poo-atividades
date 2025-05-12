@@ -1,14 +1,3 @@
-# Repositório de POO
+# Atividade 5: Desenvolvimento Orientado a Testes (TDD)
 
-Este repositório reúne todas as atividades, exercícios e projetos da disciplina de Programação Orientada a Objetos (POO). Cada atividade está isolada em uma branch própria, para facilitar o histórico e o versionamento.
-
-## Índice de Atividades
-
-| Atividade   | Branch               | Descrição                                    |
-|-------------|----------------------|----------------------------------------------|
-| Atividade 1 | `main`                | O próprio repositório    |
-| Atividade 2 | `OO-Atividade-02`           |  Atividade 2 – Modelagem UML para um sistema de biblioteca. A modelagem foi feita utilizando PlantUML.   |
-| Atividade 3 | `OO-Atividade-03-main`           |  Atividade 3: Sistema de Gerenciamento de Biblioteca   |
-| Atividade 4 | `OO-Atividade-04`           |  Atividade 4: COLLECTIONS E EXCEPTIONS   |
-| Atividade 5 | `OO-Atividade-05` | Atividade 5: DESENVOLVIMENTO ORIENTADO A TESTES |
-| …           | …                    | …                                            |
+Esta atividade prático aborda a aplicação do **Test-Driven Development (TDD)** e testes unitários com **JUnit 5** para construir um sistema de gerenciamento de estoque. A atividade foca na implementação incremental de funcionalidades, seguindo o ciclo *Red-Green-Refactor*, e na criação de testes que garantem a qualidade do código desde o início.
