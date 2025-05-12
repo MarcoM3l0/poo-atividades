@@ -25,19 +25,34 @@ public class Produto {
 
 
 	private void validarPreco(double preco) {
-		// TODO Auto-generated method stub
+		
+		if(preco < 0) {
+			throw new ValidacaoException("Preço inválido (deve ser positivo)");
+		}
 		
 	}
 
 
 	private void validarDescricao(String descricao) {
-		// TODO Auto-generated method stub
+
+		if(descricao == null || descricao.trim().isEmpty()) {
+			throw new ValidacaoException("Descrição obrigatória");
+		}
+		if(descricao.length() > 500) {
+			throw new ValidacaoException("Descrição excede 500 caracteres");
+		}
 		
 	}
 
 
 	private void validarNome(String nome) {
-		// TODO Auto-generated method stub
+		
+		if( nome == null || nome.trim().isEmpty()) {
+			throw new ValidacaoException("Nome obrigatório");
+		}
+		if(nome.length() > 100) {
+			throw new ValidacaoException("Nome excede 100 caracteres");
+		}
 		
 	}
 
@@ -45,16 +60,37 @@ public class Produto {
 	private void validarIdentificador(String id) {
 
 
-		if (id == null && id.trim().isEmpty()) {
+		if (id == null || id.trim().isEmpty()) {
 			throw new ValidacaoException("Identificador obrigatório");
 		}
 		if (id.length() != 13) {
 			throw new ValidacaoException("Tamanho do identificador inválido (13 caracteres)");
 		}
+		if(!id.matches("\\d{13}")) {
+			throw new ValidacaoException("Formato do identificador inválido (apenas números)");
+		}
 		
 	}
 
 
-	
+	public String getId() {
+		return id;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+
+	public double getPreco() {
+		return preco;
+	}
+
 
 }
