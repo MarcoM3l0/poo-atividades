@@ -67,6 +67,8 @@ public class Estoque {
     	
     	validarIdProduto(idProduto);
     	if(quantidade < 0) throw new ValidacaoException("Quantidade inválida");
+    	if(dataValidade == null) throw new ValidacaoException("Data de validade inválida");
+    	if(dataValidade.isBefore(LocalDate.now())) throw new ValidacaoException("Data de validade vencida");
     	
     	Lote lote = new Lote(produtos.get(idProduto), quantidade, dataValidade);
     	lotes.get(idProduto).add(lote);
