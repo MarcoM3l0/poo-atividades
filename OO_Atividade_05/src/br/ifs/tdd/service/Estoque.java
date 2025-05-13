@@ -66,6 +66,8 @@ public class Estoque {
     public void adicionar(String idProduto, int quantidade, LocalDate dataValidade) {
     	
     	validarIdProduto(idProduto);
+    	if(quantidade < 0) throw new ValidacaoException("Quantidade inválida");
+    	
     	Lote lote = new Lote(produtos.get(idProduto), quantidade, dataValidade);
     	lotes.get(idProduto).add(lote);
     	
