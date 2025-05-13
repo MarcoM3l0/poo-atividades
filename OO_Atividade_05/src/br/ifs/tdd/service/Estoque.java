@@ -187,4 +187,11 @@ public class Estoque {
         return sb.toString();
     }
     
+    public List<Lote> listarLotes(String idProduto) {
+        validarIdProduto(idProduto);
+        if (!produtos.containsKey(idProduto)) throw new ProdutoNaoEncontradoException("Produto não cadastrado");
+        
+        return new ArrayList<>(lotes.get(idProduto));
+    }
+    
 }
