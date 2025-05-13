@@ -1,5 +1,7 @@
 package br.ifs.tdd.model;
 
+import java.util.Objects;
+
 import br.ifs.tdd.exception.ValidacaoException;
 
 public class Produto {
@@ -92,5 +94,21 @@ public class Produto {
 		return preco;
 	}
 
+	
+	 @Override
+	    public boolean equals(Object o) {
+	        if (this == o) return true;
+	        if (o == null || getClass() != o.getClass()) return false;
+	        Produto produto = (Produto) o;
+	        return Double.compare(produto.preco, preco) == 0 &&
+	                Objects.equals(id, produto.id) &&
+	                Objects.equals(nome, produto.nome) &&
+	                Objects.equals(descricao, produto.descricao);
+	    }
+
+	    @Override
+	    public int hashCode() {
+	        return Objects.hash(id, nome, descricao, preco);
+	    }
 
 }
