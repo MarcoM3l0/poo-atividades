@@ -1,0 +1,43 @@
+package br.ifs.tdd.test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import br.ifs.tdd.exception.ValidacaoException;
+import br.ifs.tdd.model.Lote;
+import br.ifs.tdd.model.Produto;
+
+class LoteTest {
+
+	private Produto produtoValido() {
+        return new Produto("1234567890123", "Caneta", "Esferográfica", 2.50);
+    }
+
+    @Test
+    @DisplayName("CT10: Construção de lote válido")
+    void ct10_loteValido() {
+        LocalDate validade = LocalDate.now().plusDays(20);
+        Lote lote = new Lote(produtoValido(), 20, validade);
+        assertEquals(produtoValido(), lote.getProduto());
+        assertEquals(20, lote.getQuantidade());
+        assertEquals(validade, lote.getDataValidade());
+    }
+	
+    @Test
+    @DisplayName("CT11: Produto nulo")
+    void ct11_ProdutoNulo() {
+        LocalDate validade = LocalDate.now().plusDays(20);
+        
+        ValidacaoException ex = assertThrows(ValidacaoException.class,
+        		() -> new Lote(null, 20, validade));
+        
+        assertEquals("Produto inválido", ex.getMessage());
+        
+    }
+    
+}
