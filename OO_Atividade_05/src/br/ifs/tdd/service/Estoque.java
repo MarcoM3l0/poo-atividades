@@ -57,7 +57,7 @@ public class Estoque {
     	if(produto == null) throw new ValidacaoException("Produto inválido");
     	
     	String id = produto.getId();
-    	if(produtos.containsKey(id)) throw new ProdutoNaoEncontradoException("Produto não cadastrado");
+    	if(!produtos.containsKey(id)) throw new ProdutoNaoEncontradoException("Produto não cadastrado");
     	
     	produtos.put(id, produto);
     }
