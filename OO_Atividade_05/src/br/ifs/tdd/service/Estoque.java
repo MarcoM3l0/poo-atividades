@@ -86,26 +86,26 @@ public class Estoque {
     	
     	lista.sort(Comparator.comparing(Lote::getDataValidade));
     	int restante = quantidade;
-    	Iterator<Lote> it = lista.iterator();
+    	List<Lote> novaLista = new ArrayList<>();
     	
-    	while(it.hasNext() && restante > 0) {
+    	for(Lote lote: lista) {
+    		int qnt= lote.getQuantidade();
     		
-    		Lote lote = it.next();
-    		int qnt = lote.getQuantidade();
-    		
-    		if(qnt >= restante) {
-    			restante -= qnt;
-    			lote = new Lote(lote.getProduto(), 0, lote.getDataValidade());
-    		}else {
-    			lote = new Lote(lote.getProduto(), qnt - restante, lote.getDataValidade());
+    		if(restante == 0) {
+    			novaLista.add(lote);
+    		} else if(qnt > restante){
+    			novaLista.add(new Lote(
+    					lote.getProduto(),
+    					qnt - restante,
+    					lote.getDataValidade())
+    					);
     			restante = 0;
+    		}else {
+    			restante -= qnt;
     		}
-    		
-    		it.remove();
-    		if(lote.getQuantidade() > 0) lista.add(lote);
     	}
     	
-    	lotes.put(idProduto, lista);
+    	lotes.put(idProduto, novaLista);
     }
     
     
