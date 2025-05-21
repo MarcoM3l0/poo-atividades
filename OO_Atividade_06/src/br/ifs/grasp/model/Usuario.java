@@ -12,7 +12,5 @@ public class Usuario {
 		this.email = email;
 		this.telefone = telefone;
 	}
-	
-   
 
 }

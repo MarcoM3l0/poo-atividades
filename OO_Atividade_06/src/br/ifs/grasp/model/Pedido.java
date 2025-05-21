@@ -9,7 +9,21 @@ public class Pedido {
 
 	public boolean adicionarItem(ItemPedido item) {}
 	
-	public double calcularTotal() {}
+	public double calcularTotal() {
+		
+		double total = 0;
+		
+		
+		for(ItemPedido item: itens) {
+			total += item.calcularSubTotal();
+		}
+		
+		if(false) {
+			total = aplicarDesconto(total);
+		}
+		
+		return total;
+	}
 	
 	public boolean finalizarPedido() {}
 }

@@ -10,5 +10,19 @@ public class ItemPedido {
 		this.produto = produto;
 	}
 	
+	public double calcularSubTotal() {
+		
+		return getProduto().getPreco() * getQuantidade();
+		
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public Produto getProduto() {
+		return produto;
+	}
+	
 
 }

@@ -14,6 +14,26 @@ public class Produto {
 		this.quatidade = quatidade;
 		this.descricao = descricao;
 	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public double getPreco() {
+		return preco;
+	}
+
+
+	public int getQuatidade() {
+		return quatidade;
+	}
+
+
+	public String getDescricao() {
+		return descricao;
+	}
 	
 	
 
