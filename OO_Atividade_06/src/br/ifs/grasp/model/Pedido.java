@@ -7,7 +7,11 @@ public class Pedido {
 	private Usuario solicitante;
 	private List<ItemPedido> itens;
 
-	public boolean adicionarItem(ItemPedido item) {}
+	public boolean adicionarItem(Produto produto, int quantidade) {
+		ItemPedido item = new ItemPedido(produto, quantidade);
+		
+		return itens.add(item);
+	}
 	
 	public double calcularTotal() {
 		
