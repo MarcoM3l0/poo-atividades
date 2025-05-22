@@ -8,8 +8,8 @@ public class Pedido {
 	private List<ItemPedido> itens;
 
 	public boolean adicionarItem(Produto produto, int quantidade) {
-		ItemPedido item = new ItemPedido(produto, quantidade);
 		
+		ItemPedido item = new ItemPedido(produto, quantidade);
 		return itens.add(item);
 	}
 	
@@ -30,4 +30,14 @@ public class Pedido {
 	}
 	
 	public boolean finalizarPedido() {}
+
+	public Usuario getSolicitante() {
+		return solicitante;
+	}
+
+	public void setSolicitante(Usuario solicitante) {
+		this.solicitante = solicitante;
+	}
+	
+	
 }

@@ -1,0 +1,10 @@
+package br.ifs.grasp.service;
+
+public class ServicoPagamento {
+
+	public boolean processarPagamento(double total) {
+		// simulando processamento 
+		return true;
+	}
+	
+}
