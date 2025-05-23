@@ -7,7 +7,11 @@ public class DescontoVinteReais implements IEstrategiaDesconto {
 	@Override
 	public Moeda aplicar(Moeda total, Pedido pedido) {
 		
-		return new Moeda(total.getCodigo(), total.getValor().multiply(BigDecimal.valueOf(0.2)));
+		BigDecimal desconto = BigDecimal.valueOf(20);
+		BigDecimal valorDescontado = total.getValor().subtract(desconto).max(BigDecimal.ZERO);
+		
+		
+		return new Moeda(total.getCodigo(), valorDescontado);
 		
 	}
 
