@@ -1,6 +1,6 @@
 package br.ifs.grasp.service;
 
-public class ServicoPagamento {
+public class ServicoPagamento implements IPagamento {
 
 	public boolean processarPagamento(double total) {
 		// simulando processamento 
