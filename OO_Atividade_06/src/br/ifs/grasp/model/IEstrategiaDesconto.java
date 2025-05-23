@@ -1,0 +1,7 @@
+package br.ifs.grasp.model;
+
+public interface IEstrategiaDesconto {
+	
+	public double aplicar(double total, Pedido pedido);
+	
+}

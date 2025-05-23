@@ -27,13 +27,15 @@ public class ControladorPedido {
 		return confirmacao;
 	}
 	
-	public double calcularTotal() {
-		return pedido.calcularTotal();
+	public double calcularTotal(IEstrategiaDesconto desconto) {
+		return pedido.calcularTotal(desconto);
 	}
 	
 	public boolean finalizarPedido(Usuario solicitante) {
 		
-		double total = calcularTotal();
+		IEstrategiaDesconto estrategiaDesconto = new DescontoBlackFriday();
+		
+		double total = calcularTotal(estrategiaDesconto);
 		
 		if(!servicoPagamento.processarPagamento(total)) return false;
 		if(!repositorio.salvarPedido(pedido)) return false;

@@ -19,7 +19,7 @@ public class Pedido {
 		return itens.add(item);
 	}
 	
-	public double calcularTotal() {
+	public double calcularTotal(IEstrategiaDesconto estrategiaDesconto) {
 		
 		double total = 0;
 		
@@ -28,14 +28,17 @@ public class Pedido {
 			total += item.calcularSubTotal();
 		}
 		
-		if(false) {
-			total = aplicarDesconto(total);
-		}
+		total = aplicarDesconto(total, estrategiaDesconto);
 		
 		return total;
 	}
 	
-	public boolean finalizarPedido() {}
+	private double aplicarDesconto(double total, IEstrategiaDesconto estrategiaDesconto) {
+		
+		estrategiaDesconto.aplicar(total, this);
+		
+		return total;
+	}
 
 	public Usuario getSolicitante() {
 		return solicitante;
@@ -48,5 +51,6 @@ public class Pedido {
 	public List<ItemPedido> getItens() {
 		return itens;
 	}
+
 	
 }
