@@ -44,6 +44,9 @@ public class Pedido {
 	public void setSolicitante(Usuario solicitante) {
 		this.solicitante = solicitante;
 	}
-	
+
+	public List<ItemPedido> getItens() {
+		return itens;
+	}
 	
 }
