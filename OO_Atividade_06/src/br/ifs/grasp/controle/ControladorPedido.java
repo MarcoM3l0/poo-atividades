@@ -11,6 +11,7 @@ public class ControladorPedido {
     private Repositorio repositorio = new Repositorio();
     private ServicoRelatorio servicoRelatorio = new ServicoRelatorio();
     private ServicoNotificacao servicoNotificacao = new ServicoNotificacao();
+    private ServicoValidacao servicoValidacao = new ServicoValidacao(); 
 
 	public boolean iniciarPeidio(Usuario solicitante) {
 		
@@ -20,7 +21,16 @@ public class ControladorPedido {
 		
 	}
 	
-	public boolean adicionarItem(Produto produto, int quantidade) {
+	public boolean adicionarItem(Produto produto, int quantidade)  {
+		
+		try{
+			
+			servicoValidacao.validarProduto(produto);
+			servicoValidacao.validarEstoque(produto, quantidade);
+			
+		} catch(Exception e) {
+			e.getMessage();
+		}
 		
 		boolean confirmacao = pedido.adicionarItem(produto, quantidade);
 		
