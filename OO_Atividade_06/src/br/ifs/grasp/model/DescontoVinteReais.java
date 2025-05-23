@@ -1,6 +1,6 @@
 package br.ifs.grasp.model;
 
-public class DesccontoVinteReais implements IEstrategiaDesconto {
+public class DescontoVinteReais implements IEstrategiaDesconto {
 
 	@Override
 	public double aplicar(double total, Pedido pedido) {

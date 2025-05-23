@@ -12,10 +12,12 @@ public class ControladorPedido {
     private ServicoRelatorio servicoRelatorio = new ServicoRelatorio();
     private ServicoNotificacao servicoNotificacao = new ServicoNotificacao();
     private ServicoValidacao servicoValidacao = new ServicoValidacao(); 
+    private IConfiguracaoDesconto configuracaoDesconto;
 
 	public boolean iniciarPeidio(Usuario solicitante) {
 		
 		this.pedido = new Pedido(solicitante);
+		
 		
 		return (pedido != null);
 		
@@ -37,14 +39,13 @@ public class ControladorPedido {
 		return confirmacao;
 	}
 	
-	public double calcularTotal(IEstrategiaDesconto desconto) {
-		return pedido.calcularTotal(desconto);
+	public double calcularTotal(IEstrategiaDesconto estrategiaDesconto) {
+		return pedido.calcularTotal(estrategiaDesconto);
 	}
 	
-	public boolean finalizarPedido(Usuario solicitante) {
+	public boolean finalizarPedido(String cupomDesconto) {
 		
-		IEstrategiaDesconto estrategiaDesconto = new DescontoBlackFriday();
-		
+		var estrategiaDesconto = configuracaoDesconto.getEstrategia(cupomDesconto);
 		double total = calcularTotal(estrategiaDesconto);
 		
 		if(!servicoPagamento.processarPagamento(total)) return false;
