@@ -6,13 +6,35 @@ public class ServicoValidacao implements IValidacao {
 
 	@Override
 	public void validarProduto(Produto produto) {
-		// TODO Auto-generated method stub
-
+		
+		if(produto == null) {
+			throw new NullPointerException("O produto não pode ser nulo.");
+		}
+		if(produto.getNome().trim() == "" || produto.getNome() == null) {
+			throw new IllegalArgumentException("Nome do produto é obrigatorio!");
+		}
+		if(produto.getPreco() <= 0) {
+			throw new IllegalArgumentException("Preço do produto é obrigatorio!");
+		}
+		if(produto.getDescricao().trim() == "" || produto.getDescricao() == null) {
+			throw new IllegalArgumentException("Descrição do produto é obrigatorio");
+		}
+		if(produto.getQuatidade() <= 0) {
+			throw new IllegalArgumentException("Quantidade do produto é obrigatorio");
+		}
+		
+		
 	}
 
 	@Override
-	public void validarEstoque(Produto produto, int quantidadde) {
-		// TODO Auto-generated method stub
+	public void validarEstoque(Produto produto, int quantidade) {
+		
+		if(produto.getQuatidade() < quantidade) {
+			throw new IllegalArgumentException("Quantidade insuficiente: necessário " + quantidade + ", mas disponível apenas " + produto.getQuatidade());
+		}
+		if(quantidade <= 0) {
+			throw new IllegalArgumentException("Quantidade insuficiente");
+		}
 
 	}
 
