@@ -10,9 +10,9 @@ public class ItemPedido {
 		this.produto = produto;
 	}
 	
-	public double calcularSubTotal() {
+	public Moeda calcularSubTotal() {
 		
-		return getProduto().getPreco() * getQuantidade();
+		return getProduto().getPreco().multiplicar(quantidade);
 		
 	}
 

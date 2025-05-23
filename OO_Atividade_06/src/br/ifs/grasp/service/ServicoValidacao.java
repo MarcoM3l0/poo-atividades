@@ -13,7 +13,7 @@ public class ServicoValidacao implements IValidacao {
 		if(produto.getNome().trim() == "" || produto.getNome() == null) {
 			throw new IllegalArgumentException("Nome do produto é obrigatorio!");
 		}
-		if(produto.getPreco() <= 0) {
+		if(produto.getPreco().getValor().byteValue() <= 0) {
 			throw new IllegalArgumentException("Preço do produto é obrigatorio!");
 		}
 		if(produto.getDescricao().trim() == "" || produto.getDescricao() == null) {

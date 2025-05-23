@@ -1,10 +1,14 @@
 package br.ifs.grasp.model;
 
+import java.math.BigDecimal;
+
 public class DescontoVinteReais implements IEstrategiaDesconto {
 
 	@Override
-	public double aplicar(double total, Pedido pedido) {
-		return total * 0.2;
+	public Moeda aplicar(Moeda total, Pedido pedido) {
+		
+		return new Moeda(total.getCodigo(), total.getValor().multiply(BigDecimal.valueOf(0.2)));
+		
 	}
 
 }

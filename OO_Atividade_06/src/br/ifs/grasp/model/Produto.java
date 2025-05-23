@@ -3,12 +3,12 @@ package br.ifs.grasp.model;
 public class Produto {
 	
 	private String nome;
-	private double preco;
+	private Moeda preco;
 	private int quatidade;
 	private String descricao;
 	
 	
-	public Produto(String nome, double preco, int quatidade, String descricao) {
+	public Produto(String nome, Moeda preco, int quatidade, String descricao) {
 		this.nome = nome;
 		this.preco = preco;
 		this.quatidade = quatidade;
@@ -21,7 +21,7 @@ public class Produto {
 	}
 
 
-	public double getPreco() {
+	public Moeda getPreco() {
 		return preco;
 	}
 

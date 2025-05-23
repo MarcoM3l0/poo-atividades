@@ -1,10 +1,12 @@
 package br.ifs.grasp.model;
 
+import java.math.BigDecimal;
+
 public class DescontoBlackFriday implements IEstrategiaDesconto {
 
 	@Override
-	public double aplicar(double total, Pedido pedido) {
-		return total * 0.8;
+	public Moeda aplicar(Moeda total, Pedido pedido) {
+		return new Moeda(total.getCodigo(), total.getValor().multiply(BigDecimal.valueOf(0.8)));
 	}
 
 }

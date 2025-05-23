@@ -39,16 +39,16 @@ public class ControladorPedido {
 		return confirmacao;
 	}
 	
-	public double calcularTotal(IEstrategiaDesconto estrategiaDesconto) {
+	public Moeda calcularTotal(IEstrategiaDesconto estrategiaDesconto) {
 		return pedido.calcularTotal(estrategiaDesconto);
 	}
 	
 	public boolean finalizarPedido(String cupomDesconto) {
 		
 		var estrategiaDesconto = configuracaoDesconto.getEstrategia(cupomDesconto);
-		double total = calcularTotal(estrategiaDesconto);
+		Moeda total = calcularTotal(estrategiaDesconto);
 		
-		if(!servicoPagamento.processarPagamento(total)) return false;
+		if(!servicoPagamento.processarPagamento(total.getValor().doubleValue())) return false;
 		if(!repositorio.salvarPedido(pedido)) return false;
 		
 		Relatorio relatorioPedido = servicoRelatorio.gerarRelatorio(pedido);

@@ -19,13 +19,13 @@ public class Pedido {
 		return itens.add(item);
 	}
 	
-	public double calcularTotal(IEstrategiaDesconto estrategiaDesconto) {
+	public Moeda calcularTotal(IEstrategiaDesconto estrategiaDesconto) {
 		
-		double total = 0;
+		Moeda total = null;
 		
 		
 		for(ItemPedido item: itens) {
-			total += item.calcularSubTotal();
+			total = total.soma(item.calcularSubTotal());
 		}
 		
 		total = aplicarDesconto(total, estrategiaDesconto);
@@ -33,9 +33,9 @@ public class Pedido {
 		return total;
 	}
 	
-	private double aplicarDesconto(double total, IEstrategiaDesconto estrategiaDesconto) {
+	private Moeda aplicarDesconto(Moeda total, IEstrategiaDesconto estrategiaDesconto) {
 		
-		estrategiaDesconto.aplicar(total, this);
+		total = estrategiaDesconto.aplicar(total, this);
 		
 		return total;
 	}

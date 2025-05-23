@@ -2,6 +2,6 @@ package br.ifs.grasp.model;
 
 public interface IEstrategiaDesconto {
 	
-	public double aplicar(double total, Pedido pedido);
+	public Moeda aplicar(Moeda total, Pedido pedido);
 	
 }
