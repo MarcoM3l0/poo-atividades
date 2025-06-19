@@ -12,4 +12,5 @@ Este repositório reúne todas as atividades, exercícios e projetos da discipli
 | Atividade 4 | [`OO-Atividade-04`](https://github.com/MarcoM3l0/poo-atividades/tree/OO-Atividade-04)|  Atividade 4: COLLECTIONS E EXCEPTIONS   |
 | Atividade 5 | [`OO-Atividade-05`](https://github.com/MarcoM3l0/poo-atividades/tree/OO-Atividade-05)| Atividade 5: DESENVOLVIMENTO ORIENTADO A TESTES |
 | Atividade 6 | [`OO-Atividade-06`](https://github.com/MarcoM3l0/poo-atividades/tree/OO-Atividade-06)| Atividade 6: PADRÕES DE RESPONSABILIDADE (GRASP) |
+| Projeto Final | [`OO-Projeto-Final`](https://github.com/MarcoM3l0/poo-atividades/tree/OO-Projeto-Final)| Projeto Final: Implementar Design Patterns |
 | …           | …                    | …                                            |
