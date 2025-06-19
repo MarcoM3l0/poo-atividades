@@ -1,0 +1,248 @@
+package br.ifs.tdd.test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import br.ifs.tdd.exception.OperacaoInvalidaException;
+import br.ifs.tdd.exception.ProdutoDuplicadoException;
+import br.ifs.tdd.exception.ProdutoNaoEncontradoException;
+import br.ifs.tdd.exception.ValidacaoException;
+import br.ifs.tdd.model.Produto;
+import br.ifs.tdd.service.Estoque;
+
+class EstoqueTest {
+
+	private Estoque estoque = new Estoque();
+	private Produto produtoValido() {
+		return new Produto("1234567890123","Caneta","Esferográfica",2.50);
+	}
+	
+	// CADASTRO DE PRODUTOS
+	@Test
+	@DisplayName("CT15: Cadastro de produto válido no estoque")
+	void ct15_cadastroValido() {
+		
+		estoque.cadastrar(produtoValido());
+		assertEquals(produtoValido(), estoque.buscar("1234567890123"));
+	}
+	
+	
+	@Test
+	@DisplayName("CT16: Cadastro de produto nulo")
+	void ct16_cadastroNulo() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> estoque.cadastrar(null));
+		
+		assertEquals("Produto inválido", ex.getMessage());
+	}
+	
+	
+	@Test
+	@DisplayName("CT17: Cadastro de produto duplicado")
+	void ct17_cadastroDuplicado() {
+		
+		estoque.cadastrar(produtoValido());
+		assertThrows( ProdutoDuplicadoException.class, 
+				() -> estoque.cadastrar(produtoValido()));
+	}
+	
+	
+	// REMOÇÃO DE PRODUTOS
+	@Test
+	@DisplayName("CT18: Exclusão de produto válido no estoque")
+	void ct18_exclusaoProdutoValido() {
+
+		estoque.cadastrar(produtoValido());
+		estoque.remover("1234567890123");
+		assertThrows(ProdutoNaoEncontradoException.class, 
+				() -> estoque.buscar("1234567890123"));
+	}
+	
+	
+	@Test
+	@DisplayName("CT19: Exclusão de produto utilizando identificador nulo")
+	void ct19_exclusaoIndentificadorNulo() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class, 
+				() -> estoque.remover(null));
+        assertEquals("Identificador de produto inválido", ex.getMessage());	
+	}
+	
+	
+	@Test
+	@DisplayName("CT20: Exclusão de produto não cadastrado")
+	void ct20_exclusaoProdutoNaoCadastrado() {
+		
+		assertThrows(ProdutoNaoEncontradoException.class,
+				() -> estoque.remover("1234567890123"));
+		
+	}
+	
+	
+	//BUSCA DE PRODUTOS
+	@Test
+	@DisplayName("CT21: Exclusão de produto cadastrado com lotes associados")
+	void ct21_exclusaoProdutoComLote() {
+		
+		estoque.cadastrar(produtoValido());
+		estoque.adicionar("1234567890123", 20, LocalDate.now().plusDays(30));
+		
+		OperacaoInvalidaException ex = assertThrows(OperacaoInvalidaException.class,
+				() -> estoque.remover("1234567890123"));
+		assertEquals("Remova os lotes associados primeiro", ex.getMessage());
+	}
+
+	
+	@Test
+	@DisplayName("CT22: Busca de produto válido no estoque")
+	void ct22_buscarProdutoValido() {
+		
+		estoque.cadastrar(produtoValido());
+		assertEquals(produtoValido(), estoque.buscar("1234567890123"));
+	}
+	
+	
+	@Test
+	@DisplayName("CT23: Busca de produto utilizando identificador nulo")
+	void ct23_buscarIdentificadorNulo() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> estoque.buscar(null));
+		
+		assertEquals("Identificador de produto inválido", ex.getMessage());
+	}
+	
+	
+	@Test
+	@DisplayName("CT24: Busca de produto não cadastrado")
+	void ct24_buscarNaoCadastrado() {
+		
+		assertThrows(ProdutoNaoEncontradoException.class,
+				() -> estoque.buscar("1234567890123"));
+	}
+	
+	
+	//ATUALIZAÇÃO DE PRODUTOS 
+	@Test
+	@DisplayName("CT25: Atualização de produto no estoque")
+	void ct25_atualizarProduto() {
+		
+		estoque.cadastrar(produtoValido());
+		
+		Produto produtoAtualizar = new Produto("1234567890123", "Caneta preta", "Esferográfica preta", 2.10);
+		estoque.atualizar(produtoAtualizar);
+		
+		assertEquals(produtoAtualizar, estoque.buscar("1234567890123"));
+	}
+	
+	
+	@Test
+	@DisplayName("CT26: Atualização de produto utilizando produto nulo")
+	void ct26_atualizarProdutoNulo() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> estoque.atualizar(null));
+		
+		assertEquals("Produto inválido", ex.getMessage());
+	}
+	
+	
+	@Test
+	@DisplayName("CT27: Atualização de produto não cadastrado")
+	void ct27_atualizarProdutoNaoCadastrado() {
+		
+		assertThrows(ProdutoNaoEncontradoException.class,
+				() -> estoque.atualizar(produtoValido()));
+	}
+	
+	
+	// ADIÇÃO DE ITENS DE UM PRODUTO
+	@Test
+	@DisplayName("CT28: Adição de itens válidos no estoque")
+	void ct28_AdicaoEstoque() {
+		
+		estoque.cadastrar(produtoValido());
+		estoque.adicionar("1234567890123", 30, LocalDate.now().plusDays(30));
+		
+		assertEquals(estoque.obterQuantidade("1234567890123"), 30);
+	}
+	
+	
+	@Test
+	@DisplayName("CT29: Adição de itens no estoque utilizando identificador de produto nulo")
+	void ct29_adicaoIdentificarNulo() {
+		
+		estoque.cadastrar(produtoValido());
+		ValidacaoException ex = assertThrows(ValidacaoException.class, 
+				() -> estoque.adicionar(null, 30, LocalDate.now().plusDays(30)));
+		
+		assertEquals("Identificador de produto inválido", ex.getMessage());
+	}
+	
+	
+	@Test
+	@DisplayName("CT30: Adição de itens no estoque utilizando identificador não cadastrado")
+	void ct30_adicaoIdentificarNaoCadastrado() {
+		
+		assertThrows(ProdutoNaoEncontradoException.class, 
+				() -> estoque.adicionar("1234567890123", 30, LocalDate.now().plusDays(30)));
+	}
+	
+	
+	@Test
+	@DisplayName("CT31: Adição de itens no estoque utilizando quantidade negativa")
+	void ct31_adicaoQuatidadeNegativa() {
+		
+		estoque.cadastrar(produtoValido());
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class, 
+				() -> estoque.adicionar("1234567890123", -30, LocalDate.now().plusDays(30)));
+		
+		assertEquals("Quantidade inválida", ex.getMessage());
+	}
+	
+	
+	@Test
+	@DisplayName("CT32: Adição de itens no estoque utilizando data de validade nula")
+	void ct32_adicaoDataNule() {
+		
+		estoque.cadastrar(produtoValido());
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class, 
+				() -> estoque.adicionar("1234567890123", 30, null));
+		
+		assertEquals("Data de validade inválida", ex.getMessage());
+	}
+	
+	
+	@Test
+	@DisplayName("CT33: Adição de itens no estoque utilizando data de validade vencida")
+	void ct33_adicaoDataValidadeVencida() {
+
+		estoque.cadastrar(produtoValido());
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class, 
+				() -> estoque.adicionar("1234567890123", 30, LocalDate.now().minusDays(1)));
+		
+		assertEquals("Data de validade vencida", ex.getMessage());
+	}
+	
+	
+	// RETIRADA DE ITENS DE UM PRODUTO
+	@Test
+	@DisplayName("CT34: Retirada de itens válidos no estoque")
+	void ct34_retiradaItemValido() {
+		
+		estoque.cadastrar(produtoValido());
+		estoque.adicionar("1234567890123", 15, LocalDate.now().plusDays(30));
+		estoque.retirar("1234567890123", 5);
+		
+		assertEquals(estoque.obterQuantidade("1234567890123"), 1);
+	}
+}

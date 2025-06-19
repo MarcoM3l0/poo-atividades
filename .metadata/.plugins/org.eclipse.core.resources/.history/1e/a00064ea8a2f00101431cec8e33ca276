@@ -1,0 +1,92 @@
+package br.ifs.tdd.test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import br.ifs.tdd.model.Produto;
+import br.ifs.tdd.exception.*;
+
+class ProdutoTest {
+
+	@Test
+	@DisplayName("CT01: Construção de produto válido")
+	void ct01_criacaoValido() {
+		
+		Produto p = new Produto("1234567890123", "Caneta", "Esferográfica", 2.50);
+		assertEquals("1234567890123", p.getId());
+		assertEquals("Caneta", p.getNome());
+		assertEquals("Esferográfica", p.getDescricao());
+		
+	}
+	
+	@Test
+	@DisplayName("CT02: Identificador vazio ou nulo")
+	void ct02_IdentificadorVazio() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> new Produto("", "Caneta", "Esferográfica", 2.50));
+		
+		assertEquals("Identificador obrigatório", ex.getMessage());
+		
+	}
+	
+	@Test
+	@DisplayName("CT03: Identificador com comprimento inválido")
+	void ct03_IdentificadorInvalido() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> new Produto("123456789012", "Caneta", "Esferográfica", 2.50));
+		
+		assertEquals("Tamanho do identificador inválido (13 caracteres)", ex.getMessage());
+		
+	}
+	
+	@Test
+	@DisplayName("CT04: Identificador com caracteres não numéricos")
+	void ct04_IdentificadorNaoNumericos() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> new Produto("12345ABC90123", "Caneta", "Esferográfica", 2.50));
+		
+		assertEquals("Formato do identificador inválido (apenas números)", ex.getMessage());
+		
+	}
+	
+	@Test
+	@DisplayName("CT05: Nome vazio ou nulo")
+	void ct05_NomeVazio() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> new Produto("1234567890123", "", "Esferográfica", 2.50));
+		
+		assertEquals("Nome obrigatório", ex.getMessage());
+		
+	}
+	
+	@Test
+	@DisplayName("CT06: Nome muito longo caracteres)")
+	void ct06_NomeLongo() {
+		
+		String longo = "a".repeat(101);
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> new Produto("1234567890123", longo, "Esferográfica", 2.50));
+		
+		assertEquals("Nome excede 100 caracteres", ex.getMessage());
+		
+	}
+	
+	@Test
+	@DisplayName("CT07: Descrição vazia ou nula")
+	void ct07_DescricaoVazia() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> new Produto("1234567890123", "Caneta", "", 2.50));
+		
+		assertEquals("Nome excede 100 caracteres", ex.getMessage());
+		
+	}
+
+}

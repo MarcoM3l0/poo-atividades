@@ -1,0 +1,19 @@
+package br.ifs.grasp.service;
+
+import br.ifs.grasp.model.Produto;
+
+public class ServicoValidacao implements IValidacao {
+
+	public void validarProduto(Produto produto) {
+		if(produto == null) {
+			throw new NullPointerException("O objeto não pode ser nulo.");
+		}
+	}
+
+	@Override
+	public void validarEstoque(Produto produto, int quantidadde) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

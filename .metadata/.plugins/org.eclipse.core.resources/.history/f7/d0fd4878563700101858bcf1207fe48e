@@ -1,0 +1,15 @@
+package br.ifs.grasp.model;
+
+public class Relatorio {
+	
+	private String conteudo;
+	private Pedido pedido;
+	
+	public Relatorio(String conteudo, Pedido pedido) {
+		this.conteudo = conteudo;
+		this.pedido = pedido;
+	}
+	
+	
+
+}

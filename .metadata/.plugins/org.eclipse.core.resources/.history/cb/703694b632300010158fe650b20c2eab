@@ -1,0 +1,100 @@
+package br.ifs.tdd.test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import br.ifs.tdd.exception.OperacaoInvalidaException;
+import br.ifs.tdd.exception.ProdutoDuplicadoException;
+import br.ifs.tdd.exception.ProdutoNaoEncontradoException;
+import br.ifs.tdd.exception.ValidacaoException;
+import br.ifs.tdd.model.Produto;
+import br.ifs.tdd.service.Estoque;
+
+class EstoqueTest {
+
+	private Estoque estoque = new Estoque();
+	private Produto produtoValido() {
+		return new Produto("1234567890123","Caneta","Esferográfica",2.50);
+	}
+	
+	
+	@Test
+	@DisplayName("CT15: Cadastro de produto válido no estoque")
+	void ct15_cadastroValido() {
+		
+		estoque.cadastrar(produtoValido());
+		assertEquals(produtoValido(), estoque.buscar("1234567890123"));
+	}
+	
+	
+	@Test
+	@DisplayName("CT16: Cadastro de produto nulo")
+	void ct16_cadastroNulo() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class,
+				() -> estoque.cadastrar(null));
+		
+		assertEquals("Produto inválido", ex.getMessage());
+	}
+	
+	
+	@Test
+	@DisplayName("CT17: Cadastro de produto duplicado")
+	void ct17_cadastroDuplicado() {
+		
+		estoque.cadastrar(produtoValido());
+		assertThrows( ProdutoDuplicadoException.class, 
+				() -> estoque.cadastrar(produtoValido()));
+	}
+	
+	
+	@Test
+	@DisplayName("CT18: Exclusão de produto válido no estoque")
+	void ct18_exclusaoProdutoValido() {
+
+		estoque.cadastrar(produtoValido());
+		estoque.remover("1234567890123");
+		assertThrows(ProdutoNaoEncontradoException.class, 
+				() -> estoque.buscar("1234567890123"));
+	}
+	
+	
+	@Test
+	@DisplayName("CT19: Exclusão de produto utilizando identificador nulo")
+	void ct19_exclusaoIndentificadorNulo() {
+		
+		ValidacaoException ex = assertThrows(ValidacaoException.class, 
+				() -> estoque.remover(null));
+        assertEquals("Identificador de produto inválido", ex.getMessage());	
+	}
+	
+	
+	@Test
+	@DisplayName("CT20: Exclusão de produto não cadastrado")
+	void ct20_exclusaoProdutoNaoCadastrado() {
+		
+		assertThrows(ProdutoNaoEncontradoException.class,
+				() -> estoque.remover("1234567890123"));
+		
+	}
+	
+	
+	@Test
+	@DisplayName("CT21: Exclusão de produto cadastrado com lotes associados")
+	void ct21_exclusaoProdutoComLote() {
+		
+		estoque.cadastrar(produtoValido());
+		estoque.adicionar("1234567890123", 20, LocalDate.now().plusDays(30));
+		
+		OperacaoInvalidaException ex = assertThrows(OperacaoInvalidaException.class,
+				() -> estoque.remover("1234567890123"));
+		assertEquals("Remova os lotes associados primeiro", ex.getMessage());
+		
+	}
+
+}

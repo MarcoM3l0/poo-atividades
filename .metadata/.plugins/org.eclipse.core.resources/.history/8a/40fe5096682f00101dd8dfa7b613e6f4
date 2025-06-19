@@ -1,0 +1,52 @@
+package br.ifs.tdd.model;
+
+
+public class Produto {
+	
+	private  String identificador;
+    private String nome;
+    private String descricao;
+    private double preco;
+    
+    
+	public Produto(String identificador, String nome, String descricao, double preco) {
+		
+		validarIdentificador(identificador);
+        validarNome(nome);
+        validarDescricao(descricao);
+        validarPreco(preco);
+		
+		this.identificador = identificador;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco = preco;
+	}
+
+
+	private void validarPreco(double preco) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void validarDescricao(String descricao) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void validarNome(String nome) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void validarIdentificador(String identificador) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+
+}

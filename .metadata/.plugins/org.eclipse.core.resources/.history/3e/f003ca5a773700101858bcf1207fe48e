@@ -1,0 +1,11 @@
+package br.ifs.grasp.model;
+
+public class DescontoBlackFriday implements IEstrategiaDesconto {
+
+	@Override
+	public double aplicar(double total, Pedido pedido) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

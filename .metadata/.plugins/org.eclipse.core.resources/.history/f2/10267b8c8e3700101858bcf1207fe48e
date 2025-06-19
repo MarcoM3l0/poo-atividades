@@ -1,0 +1,24 @@
+package br.ifs.grasp.service;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
+
+import br.ifs.grasp.model.Moeda;
+
+public class ServicoConversorMoeda implements IConversorMoeda {
+	
+	@Override
+	public Moeda converter(Moeda valorOrigem, String codigoMoedaDestino) {
+		
+		if("USD" == codigoMoedaDestino.toUpperCase()) {
+			return new Moeda(codigoMoedaDestino, valorOrigem.getValor().multiply(BigDecimal.valueOf(0.25)));
+		}
+		if("EUR" == codigoMoedaDestino.toUpperCase()) {
+			return new Moeda(codigoMoedaDestino, valorOrigem.getValor().multiply(BigDecimal.valueOf(0.20)));
+		}
+		
+		return new Moeda(codigoMoedaDestino, valorOrigem.getValor().multiply(BigDecimal.ONE));
+	}
+
+}

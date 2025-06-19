@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module OO_Atividade_05 {
+	requires org.junit.jupiter.api;
+}

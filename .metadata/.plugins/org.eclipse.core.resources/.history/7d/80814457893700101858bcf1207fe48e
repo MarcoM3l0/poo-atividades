@@ -1,0 +1,22 @@
+package br.ifs.grasp.service;
+
+import br.ifs.grasp.model.DescontoBlackFriday;
+import br.ifs.grasp.model.DescontoVinteReais;
+import br.ifs.grasp.model.IEstrategiaDesconto;
+import br.ifs.grasp.model.SemDesconto;
+
+public class ServicoConfiguracaoDesconto implements IConfiguracaoDesconto {
+
+	@Override
+	public IEstrategiaDesconto getEstrategia(String cupomDesconto) {
+		if("BLACKFRIDAY".equalsIgnoreCase(cupomDesconto)) {
+			return new DescontoBlackFriday();
+		}
+		if("20REAIS".equalsIgnoreCase(cupomDesconto)) {
+			return new DescontoVinteReais();
+		}
+		
+		return new SemDesconto();
+	}
+
+}

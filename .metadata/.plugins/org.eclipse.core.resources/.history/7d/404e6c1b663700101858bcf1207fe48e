@@ -1,0 +1,65 @@
+package br.ifs.grasp.controle;
+
+import br.ifs.grasp.model.Pedido;
+import br.ifs.grasp.model.Produto;
+import br.ifs.grasp.model.Relatorio;
+import br.ifs.grasp.model.Usuario;
+import br.ifs.grasp.repository.Repositorio;
+import br.ifs.grasp.service.ServicoNotificacao;
+import br.ifs.grasp.service.ServicoPagamento;
+import br.ifs.grasp.service.ServicoRelatorio;
+
+public class ControladorPedido {
+	
+	private Pedido pedido;
+
+	public boolean iniciarPeidio(Usuario solicitante) {
+		
+		pedido = new Pedido(solicitante);
+		
+		return (pedido != null);
+		
+	}
+	
+	public boolean adicionarItem(Produto produto, int quantidade) {
+		
+		pedido = null;
+		boolean confirmacao = pedido.adicionarItem(produto, quantidade);
+		
+		return confirmacao;
+	}
+	
+	public double calcularTotal() {
+		return pedido.calcularTotal();
+	}
+	
+	public boolean finalizarPedido(Usuario solicitante) {
+		
+		ServicoPagamento processarPagamento = new ServicoPagamento();
+		Repositorio salvarPedido = new Repositorio();
+		ServicoRelatorio gerarRelatorio = new ServicoRelatorio();
+		ServicoNotificacao enviarNotificacao = new ServicoNotificacao();
+		
+		double total = calcularTotal();
+		
+		if(processarPagamento.processarPagamento(total)) {
+			if(salvarPedido.salvarPedido(pedido)) {
+				
+				Relatorio relatorioPedido = gerarRelatorio.gerarRelatorio(pedido);
+				if(enviarNotificacao.enviarNotificacao(relatorioPedido)) {
+					return true;
+				}else {
+					return false;
+				}
+				
+			}else {
+				return false;
+			}
+			
+		}else {
+			return false;
+		}
+		
+	}
+
+}

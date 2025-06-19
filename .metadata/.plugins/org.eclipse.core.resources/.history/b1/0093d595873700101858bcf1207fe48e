@@ -1,0 +1,13 @@
+package br.ifs.grasp.service;
+
+import br.ifs.grasp.model.IEstrategiaDesconto;
+
+public class ServicoConfiguracaoDesconto implements IConfiguracaoDesconto {
+
+	@Override
+	public IEstrategiaDesconto getEstrategia(String cupomDesconto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

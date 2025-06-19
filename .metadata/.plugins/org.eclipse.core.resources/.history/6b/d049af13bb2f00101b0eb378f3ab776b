@@ -1,0 +1,82 @@
+package br.ifs.tdd.service;
+
+import java.time.LocalDate;
+import java.util.*;
+
+import br.ifs.tdd.exception.OperacaoInvalidaException;
+import br.ifs.tdd.exception.ProdutoDuplicadoException;
+import br.ifs.tdd.exception.ProdutoNaoEncontradoException;
+import br.ifs.tdd.exception.ValidacaoException;
+import br.ifs.tdd.model.*;
+
+public class Estoque {
+	private Map<String, Produto> produtos = new HashMap<>();
+    private Map<String, List<Lote>> lotes = new HashMap<>();
+
+    public void cadastrar(Produto produto) {
+    	
+        if (produto == null) throw new ValidacaoException("Produto inválido");
+        
+        String id = produto.getId();
+        if (produtos.containsKey(id)) throw new ProdutoDuplicadoException("Produto com cadastro");
+        
+        produtos.put(id, produto);
+        lotes.put(id, new ArrayList<>());
+    }
+
+    public void remover(String idProduto) {
+    	
+        if (idProduto == null || idProduto.trim().isEmpty()) throw new ValidacaoException("Identificador de produto inválido");
+        if (!produtos.containsKey(idProduto)) throw new ProdutoNaoEncontradoException("Produto não cadastrado");
+        
+        List<Lote> lista = lotes.get(idProduto);
+        if (!lista.isEmpty()) throw new OperacaoInvalidaException("Remova os lotes associados primeiro");
+        
+        produtos.remove(idProduto);
+        lotes.remove(idProduto);
+    }
+    
+    public Produto buscar(String idProduto) {
+    	
+    	if (idProduto == null || idProduto.trim().isEmpty()) throw new ValidacaoException("Identificador de produto inválido");
+        
+    	Produto p = produtos.get(idProduto);
+        if(p == null) throw new ProdutoNaoEncontradoException("Produto não cadastrado");
+        
+        return p;
+    	
+    }
+    
+    public void atualizar(Produto produto) {
+    	
+    	if(produto == null) throw new ValidacaoException("Produto inválido");
+    	
+    	String id = produto.getId();
+    	if(produtos.containsKey(id)) throw new ProdutoNaoEncontradoException("Produto não cadastrado");
+    	
+    	produtos.put(id, produto);
+    	
+    }
+    
+    public void adicionar(String idProduto, int qnt, LocalDate dataValidade) {
+    	
+    	if(idProduto == null || idProduto.trim().isEmpty()) throw new ValidacaoException("Identificador de produto inválido");
+    	if (!produtos.containsKey(idProduto)) throw new ProdutoNaoEncontradoException("Produto não cadastrado");
+    	
+    	Lote lote = new Lote(produtos.get(idProduto), qnt, dataValidade);
+    	lotes.get(idProduto).add(lote);
+    	
+    }
+    
+    public void retirar(String idProduto, int qnt) {
+    	
+    	if(idProduto == null || idProduto.trim().isEmpty()) throw new ValidacaoException("Identificador de produto inválido");
+    	if (!produtos.containsKey(idProduto)) throw new ProdutoNaoEncontradoException("Produto não cadastrado");
+    	
+    	
+    	
+    }
+    
+    
+
+}

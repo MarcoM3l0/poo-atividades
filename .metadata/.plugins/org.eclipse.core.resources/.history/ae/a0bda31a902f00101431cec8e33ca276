@@ -1,0 +1,28 @@
+package br.ifs.tdd.test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import br.ifs.tdd.model.Produto;
+
+class LoteTest {
+
+	private Produto ProdutoVálido() {
+		return new Produto("1234567890123", "Caneta", "Esferográfica", 2.50);
+	}
+	
+	@Test
+	@DisplayName("CT10:Construção de lote válido")
+	void ct01_criacaoValido() {
+		
+		Produto p = new Produto("1234567890123", "Caneta", "Esferográfica", 2.50);
+		assertEquals("1234567890123", p.getId());
+		assertEquals("Caneta", p.getNome());
+		assertEquals("Esferográfica", p.getDescricao());
+		
+	}
+	
+}

@@ -1,0 +1,10 @@
+package br.ifs.grasp.model;
+
+public class DescontoVinteReais implements IEstrategiaDesconto {
+
+	@Override
+	public Moeda aplicar(Moeda total, Pedido pedido) {
+		return total * 0.2;
+	}
+
+}
