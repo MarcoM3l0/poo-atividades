@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import br.edu.ifs.designpatterns.facade.Fachada;
+import br.edu.ifs.designpatterns.facade.controll.Fachada;
 
 /**
  * 
@@ -61,7 +61,7 @@ class TestFacade {
 		/*
 		 * Verificando a 'base de dados' dos produtos
 		 */
-		assertTrue(sistema.listarProdutos().isEmpty());
+		assertTrue(sistema.listarPedidos().isEmpty());
 
 		/*
 		 * Inserção de três produtos na 'base de dados' do sistema
@@ -80,10 +80,10 @@ class TestFacade {
 		/*
 		 * Verificação da base de dados do sistema
 		 */
-		assertEquals(sistema.listarProdutos().size(), 3);
-		assertEquals(sistema.listarProdutos().get(0), "Pro0001: Samsung Galaxy Tab S6 Lite ... R$ 1914.85");
-		assertEquals(sistema.listarProdutos().get(1), "Pro0002: Smart TV 50\" 4K Ultra HD Samsung ... R$ 2374.05");
-		assertEquals(sistema.listarProdutos().get(2), "Pro0003: Smartphone Samsung Galaxy A55 ... R$ 1979.05");
+		assertEquals(sistema.listarPedidos().size(), 3);
+		assertEquals(sistema.listarPedidos().get(0), "Pro0001: Samsung Galaxy Tab S6 Lite ... R$ 1914.85");
+		assertEquals(sistema.listarPedidos().get(1), "Pro0002: Smart TV 50\" 4K Ultra HD Samsung ... R$ 2374.05");
+		assertEquals(sistema.listarPedidos().get(2), "Pro0003: Smartphone Samsung Galaxy A55 ... R$ 1979.05");
 
 		/*
 		 * Verificando o total do pedido efetuado pelo cliente 1
