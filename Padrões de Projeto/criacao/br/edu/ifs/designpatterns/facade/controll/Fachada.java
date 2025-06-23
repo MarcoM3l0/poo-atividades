@@ -36,7 +36,8 @@ public class Fachada {
 	}
 
 	public List<Cliente> listarClientes() {
-		// TODO Auto-generated method stub
+		
+		
 		return repor.recuperar();
 	}
 
