@@ -1,4 +1,4 @@
-package br.edu.ifs.designpatterns.facade.controll;
+package br.edu.ifs.designpatterns.facade;
 
 import java.util.ArrayList;
 import java.util.HashMap;
