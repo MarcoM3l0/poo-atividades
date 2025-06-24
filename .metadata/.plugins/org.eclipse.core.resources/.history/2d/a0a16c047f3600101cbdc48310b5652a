@@ -1,7 +1,0 @@
-package br.ifs.grasp.service;
-
-public class ServicoPagamento {
-
-	processarPagamento(double total) {}
-	
-}

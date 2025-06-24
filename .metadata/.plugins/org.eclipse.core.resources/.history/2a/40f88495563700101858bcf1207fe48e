@@ -1,7 +1,0 @@
-package br.ifs.grasp.service;
-
-public class ServicoNotificacao {
-	
-	public boolean enviarNotificacao(Relatorio relatorio) {}
-	
-}

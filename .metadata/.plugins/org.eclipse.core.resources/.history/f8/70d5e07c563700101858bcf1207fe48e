@@ -1,9 +1,0 @@
-package br.ifs.grasp.service;
-
-import br.ifs.grasp.model.Pedido;
-
-public class ServicoRelatorio {
-
-	public Relatorio gerarRelatorio(Pedido pedio) {}
-	
-}

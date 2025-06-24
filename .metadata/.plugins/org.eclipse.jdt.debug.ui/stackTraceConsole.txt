@@ -1,4 +1,0 @@
-ValidacaoException ex = assertThrows(ValidacaoException.class,
-				() -> new Produto("1234567890123", "", "Esferográfica", 2.50));
-		
-		assertEquals("Nome obrigatório", ex.getMessage());
