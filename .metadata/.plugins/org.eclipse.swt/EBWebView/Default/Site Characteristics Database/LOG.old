@@ -1,5 +1,1 @@
-2025/06/24-01:56:25.758 7808 Log #3: 12 ops saved to Table #4 OK
-2025/06/24-01:56:25.762 7808 Archiving D:\Faculdade\POO\poo-atividades\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/000003.log: OK
-2025/06/24-01:56:25.763 7808 Table #4: 12 entries OK
-2025/06/24-01:56:25.767 7808 Archiving D:\Faculdade\POO\poo-atividades\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/MANIFEST-000001: OK
-2025/06/24-01:56:25.780 7808 **** Repaired leveldb D:\Faculdade\POO\poo-atividades\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database; recovered 1 files; 312 bytes. Some data may have been lost. ****
+2025/06/24-01:56:25.789 7808 Reusing MANIFEST D:\Faculdade\POO\poo-atividades\.metadata\.plugins\org.eclipse.swt\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
