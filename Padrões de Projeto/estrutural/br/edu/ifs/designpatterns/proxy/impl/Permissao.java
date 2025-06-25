@@ -7,9 +7,9 @@ public class Permissao {
 	
 	
 	
-	public Permissao(boolean escrita, boolean leitura) {
-		this.escrita = escrita;
+	public Permissao(boolean leitura, boolean escrita) {
 		this.leitura = leitura;
+		this.escrita = escrita;
 	}
 
 	public boolean podeLer() {
