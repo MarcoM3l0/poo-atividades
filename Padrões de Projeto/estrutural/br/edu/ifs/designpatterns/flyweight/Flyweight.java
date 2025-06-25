@@ -1,5 +1,7 @@
 package br.edu.ifs.designpatterns.flyweight;
 
-public class Flyweight {
-
+public interface Flyweight {
+	
+	public String mostrar();
+	
 }
