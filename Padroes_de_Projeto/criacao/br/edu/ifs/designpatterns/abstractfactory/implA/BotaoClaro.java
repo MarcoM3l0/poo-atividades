@@ -1,5 +1,13 @@
 package br.edu.ifs.designpatterns.abstractfactory.implA;
 
-public class BotaoClaro {
+import br.edu.ifs.designpatterns.abstractfactory.Botao;
+
+public class BotaoClaro implements Botao{
+
+	@Override
+	public String obterCor() {
+		// TODO Auto-generated method stub
+		return "#FFFAFA";
+	}
 
 }
