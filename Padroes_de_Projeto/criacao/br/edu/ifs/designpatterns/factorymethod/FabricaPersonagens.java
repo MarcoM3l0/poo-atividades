@@ -10,10 +10,10 @@ public class FabricaPersonagens {
 	public static Personagem criarPersonagem(String personagem) {
 		
 		Personagem personagemCriado = switch (personagem) {
-			case "Anao" -> new Anao();
-			case "Elfo" ->  new Elfo();
-			case "Orc" ->  new Orc();
-			case "Humano" ->  new Humano();
+			case "anão" -> new Anao();
+			case "elfo" ->  new Elfo();
+			case "orc" ->  new Orc();
+			case "humano" ->  new Humano();
 			default -> throw new IllegalArgumentException("Personagem não encontrado!");
 		};
 
