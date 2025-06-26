@@ -14,7 +14,7 @@ public class FabricaPersonagens {
 			case "elfo" ->  new Elfo();
 			case "orc" ->  new Orc();
 			case "humano" ->  new Humano();
-			default -> throw new IllegalArgumentException("Personagem não encontrado!");
+			default -> throw new IllegalStateException("Personagem não encontrado!");
 		};
 
 		
