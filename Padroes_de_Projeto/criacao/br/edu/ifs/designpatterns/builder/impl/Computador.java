@@ -17,11 +17,11 @@ public class Computador {
 		return processador;
 	}
 
-	public int getRam() {
+	public int getRAM() {
 		return ram;
 	}
 
-	public int getHd() {
+	public int getHD() {
 		return hd;
 	}
 
