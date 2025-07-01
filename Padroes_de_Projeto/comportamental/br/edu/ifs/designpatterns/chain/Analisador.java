@@ -5,7 +5,7 @@ import br.edu.ifs.designpatterns.chain.impl.RequisicaoEmprestimo;
 
 public abstract class Analisador {
 
-	private Analisador sucessor;
+	protected Analisador sucessor;
 	public abstract Emprestimo processarRequisição(RequisicaoEmprestimo requisicao);
 	public void definirSucessor(Analisador sucessor) {
 		this.sucessor = sucessor;
