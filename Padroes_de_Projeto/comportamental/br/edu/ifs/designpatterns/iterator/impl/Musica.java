@@ -18,6 +18,11 @@ public class Musica {
 	public String getArtista() {
 		return artista;
 	}
+
+	@Override
+	public String toString() {
+		return "{" + this.titulo +", "+ this.artista+"}";
+	}
 	
 	
 
