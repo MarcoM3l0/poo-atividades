@@ -15,6 +15,10 @@ public class AvancarCanalTV implements Comando {
 	@Override
 	public void executar() {
 		// TODO Auto-generated method stub
+
+		if(!this.tv.estaLigada())
+			throw new IllegalStateException("Televisão desligada");
+		
 		this.tv.setCanal(this.tv.getCanal() + 1);
 	}
 
