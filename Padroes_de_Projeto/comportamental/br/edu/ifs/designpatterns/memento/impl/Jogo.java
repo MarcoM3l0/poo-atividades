@@ -30,7 +30,7 @@ public class Jogo {
 
 	@Override
 	public String toString() {
-		return "{saude: " + saude + ", vidas: " + vidas + "}";
+		return "{saúde: " + saude + ", vidas: " + vidas + "}";
 	}
 
 }
