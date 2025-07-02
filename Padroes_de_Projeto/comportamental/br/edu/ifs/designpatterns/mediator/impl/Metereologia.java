@@ -6,12 +6,12 @@ import br.edu.ifs.designpatterns.mediator.Mediador;
 public class Metereologia extends Colaborador {
 
 	private boolean condicoesFavoraveis;
-	
-	public Metereologia(Mediador mediador, String id) {
-		super(mediador, id);
+
+	public Metereologia(String id, Mediador mediador) {
+		super(id, mediador);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 
 	public String informarCondicoes() {
 		
