@@ -15,7 +15,7 @@ public class Jogo {
 		this.saude -= dano;
 		
 		if(this.saude <= 0) {
-			if(this.vidas <= 1)
+			if(this.vidas == 1)
 				throw new IllegalStateException("Fim de Jogo");
 			
 			this.saude = 100;
