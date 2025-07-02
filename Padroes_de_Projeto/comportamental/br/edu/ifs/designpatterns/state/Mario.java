@@ -12,43 +12,24 @@ public class Mario {
 
 	public String atacar() {
 		
-		if((this.estado instanceof MarioMorto))
-			this.estado.obterAtque();
-		
 		return this.estado.obterAtque();
 	}
 	
 	public void pegarCogumelo() {
 		
-		if((this.estado instanceof MarioMorto))
-			this.estado.pegarCogumelo(this);
-		
-		if((this.estado instanceof MarioFogo) || (this.estado instanceof MarioVoador))
-			return;
-		
 		this.estado.pegarCogumelo(this);
 	}
 	
 	public void pegarFlor() {
-		
-		if((this.estado instanceof MarioMorto))
-			this.estado.pegarFlor(this);
-		
 		this.estado.pegarFlor(this);
 	}
 	
 	public void pegarPena() {
 		
-		if((this.estado instanceof MarioMorto))
-			this.estado.pegarPena(this);
-		
 		this.estado.pegarPena(this);
 	}
 	
 	public void sofreDano() {
-		
-		if((this.estado instanceof MarioMorto))
-			this.estado.sofrerDano(this);
 		
 		this.estado.sofrerDano(this);
 	}
