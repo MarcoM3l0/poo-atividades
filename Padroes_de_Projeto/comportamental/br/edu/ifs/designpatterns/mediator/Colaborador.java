@@ -2,12 +2,13 @@ package br.edu.ifs.designpatterns.mediator;
 
 public abstract class Colaborador {
 	
-	protected Mediador mediador;
 	protected String id;
-	
-	public Colaborador(Mediador mediador, String id) {
-		this.mediador = mediador;
+	protected Mediador mediador;
+
+	public Colaborador(String id, Mediador mediador) {
+		super();
 		this.id = id;
+		this.mediador = mediador;
 	}
 
 	public String getId() {
