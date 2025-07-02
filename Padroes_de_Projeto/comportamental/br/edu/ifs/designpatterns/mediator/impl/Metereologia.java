@@ -10,6 +10,7 @@ public class Metereologia extends Colaborador {
 	public Metereologia(String id, Mediador mediador) {
 		super(id, mediador);
 		// TODO Auto-generated constructor stub
+		super.mediador.notificar(this, id);
 	}
 
 

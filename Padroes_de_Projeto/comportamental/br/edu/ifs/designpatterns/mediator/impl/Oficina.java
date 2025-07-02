@@ -11,6 +11,7 @@ public class Oficina extends Colaborador {
 	public Oficina(String id, Mediador mediador) {
 		super(id, mediador);
 		// TODO Auto-generated constructor stub
+		super.mediador.notificar(this, id);
 	}
 
 	private List<Aeronave> manutencao = new ArrayList<>();

@@ -18,6 +18,17 @@ public class ControladorTrafego implements Mediador {
 	public String notificar(Colaborador colaborador, String mensagem) {
 		// TODO Auto-generated method stub
 		
+		switch(mensagem) {
+			case "Metereologia": {
+				this.metereologia = (Metereologia) colaborador;
+				return null;
+			}
+			case "Oficina": {
+				this.oficina = (Oficina) colaborador;
+				return null;
+			}
+		}
+		
 		 if (colaborador instanceof Aeronave) {
 			 Aeronave aeronave = (Aeronave) colaborador;
 			 return solicitacaoAeronave(aeronave, mensagem);
