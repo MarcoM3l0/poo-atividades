@@ -1,6 +1,6 @@
 package br.edu.ifs.designpatterns.state;
 
-import br.edu.ifs.designpatterns.state.impl.*;
+import br.edu.ifs.designpatterns.state.impl.MarioPequeno;
 
 public class Mario {
 	

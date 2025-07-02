@@ -8,7 +8,7 @@ public class MarioPequeno implements EstadoMario {
 	@Override
 	public void pegarCogumelo(Mario mario) {
 		// TODO Auto-generated method stub
-		
+		mario.setEstado(new MarioSuper());
 	}
 
 	@Override
