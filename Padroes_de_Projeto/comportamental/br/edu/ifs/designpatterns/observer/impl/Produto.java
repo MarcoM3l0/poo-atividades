@@ -27,7 +27,7 @@ public class Produto extends Sujeito {
 			return;
 		
 		if(this.quantidade < quantidade)
-			throw new IllegalStateException("Quantidade insuficiente");
+			throw new IllegalStateException("Produto indisponível");
 		
 		this.quantidade -= quantidade;
 	}
