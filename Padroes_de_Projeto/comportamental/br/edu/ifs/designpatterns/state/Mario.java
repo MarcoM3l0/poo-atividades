@@ -26,8 +26,7 @@ public class Mario {
 		if((this.estado instanceof MarioFogo) || (this.estado instanceof MarioVoador))
 			return;
 		
-		if(!(this.estado instanceof MarioSuper))
-			this.estado.pegarCogumelo(this);
+		this.estado.pegarCogumelo(this);
 	}
 	
 	public void pegarFlor() {
@@ -35,8 +34,7 @@ public class Mario {
 		if((this.estado instanceof MarioMorto))
 			this.estado.pegarFlor(this);
 		
-		if(!(this.estado instanceof MarioFogo))
-			this.estado.pegarFlor(this);
+		this.estado.pegarFlor(this);
 	}
 	
 	public void pegarPena() {
@@ -44,8 +42,7 @@ public class Mario {
 		if((this.estado instanceof MarioMorto))
 			this.estado.pegarPena(this);
 		
-		if(!(this.estado instanceof MarioVoador))
-			this.estado.pegarPena(this);
+		this.estado.pegarPena(this);
 	}
 	
 	public void sofreDano() {
