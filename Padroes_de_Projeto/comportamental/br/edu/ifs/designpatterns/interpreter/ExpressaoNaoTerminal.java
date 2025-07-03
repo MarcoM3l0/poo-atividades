@@ -12,6 +12,10 @@ public abstract class ExpressaoNaoTerminal extends Expressao {
 		this.expressoes = expressoes;
 	}
 
+	public ExpressaoNaoTerminal() {
+		super();
+	}
+
 	public List<Expressao> getExpressoes() {
 		return expressoes;
 	}
