@@ -13,13 +13,13 @@ public class TaxadorIsencao implements Taxador {
 	@Override
 	public double visitar(Cerveja cerveja) {
 		// TODO Auto-generated method stub
-		return cerveja.getCusto() * 2.5;
+		return cerveja.getCusto() * 1.15;
 	}
 
 	@Override
 	public double visitar(Cigarro cigarro) {
 		// TODO Auto-generated method stub
-		return cigarro.getCusto() * 1.15;
+		return cigarro.getCusto() * 2.5;
 	}
 
 	@Override
