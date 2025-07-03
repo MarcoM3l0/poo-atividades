@@ -4,4 +4,9 @@ public abstract class ExpressaoTerminal<G> extends Expressao {
 	
 	private G contexto;
 
+	public ExpressaoTerminal(G contexto) {
+		super();
+		this.contexto = contexto;
+	}
+
 }
