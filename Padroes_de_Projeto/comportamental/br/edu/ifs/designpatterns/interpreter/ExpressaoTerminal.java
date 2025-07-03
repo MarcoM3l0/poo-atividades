@@ -9,4 +9,8 @@ public abstract class ExpressaoTerminal<G> extends Expressao {
 		this.contexto = contexto;
 	}
 
+	public G getContexto() {
+		return contexto;
+	}
+
 }
