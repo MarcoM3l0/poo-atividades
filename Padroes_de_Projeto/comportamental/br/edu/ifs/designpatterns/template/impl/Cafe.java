@@ -10,7 +10,7 @@ public class Cafe extends Bebida {
 	@Override
 	protected List<String> prepararIngredientes() {
 		// TODO Auto-generated method stub
-List<String> ingrediente = new ArrayList<>();
+		List<String> ingrediente = new ArrayList<>();
 		
 		ingrediente.add("Adicionar uma colher de café");
 		
