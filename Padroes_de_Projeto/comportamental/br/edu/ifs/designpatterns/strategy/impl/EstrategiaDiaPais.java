@@ -7,7 +7,7 @@ public class EstrategiaDiaPais implements EstrategiaDesconto {
 	@Override
 	public double calcularDesconto() {
 		// TODO Auto-generated method stub
-		return 0.6;
+		return 0.4;
 	}
 
 }
