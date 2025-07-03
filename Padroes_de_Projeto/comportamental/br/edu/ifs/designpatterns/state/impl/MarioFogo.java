@@ -8,37 +8,37 @@ public class MarioFogo implements EstadoMario {
 	@Override
 	public void pegarCogumelo(Mario mario) {
 		// TODO Auto-generated method stub
-		
+		mario.setEstado(this);
 	}
 
 	@Override
 	public void pegarFlor(Mario mario) {
 		// TODO Auto-generated method stub
-		
+		mario.setEstado(this);
 	}
 
 	@Override
 	public void pegarPena(Mario mario) {
 		// TODO Auto-generated method stub
-		
+		mario.setEstado(new MarioVoador());
 	}
 
 	@Override
 	public void sofrerDano(Mario mario) {
 		// TODO Auto-generated method stub
-		
+		mario.setEstado(new MarioSuper());
 	}
 
 	@Override
 	public String obterAtque() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Mario de fogo";
 	}
 
 	@Override
 	public String obterEstado() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Bola de fogo";
 	}
 
 }
