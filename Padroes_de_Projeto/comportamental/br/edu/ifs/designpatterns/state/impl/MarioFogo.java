@@ -32,13 +32,13 @@ public class MarioFogo implements EstadoMario {
 	@Override
 	public String obterAtque() {
 		// TODO Auto-generated method stub
-		return "Mario de fogo";
+		return "Bola de fogo";
 	}
 
 	@Override
 	public String obterEstado() {
 		// TODO Auto-generated method stub
-		return "Bola de fogo";
+		return "Mario de fogo";
 	}
 
 }
