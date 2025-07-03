@@ -14,31 +14,31 @@ public class MarioPequeno implements EstadoMario {
 	@Override
 	public void pegarFlor(Mario mario) {
 		// TODO Auto-generated method stub
-		
+		mario.setEstado(new MarioFogo());
 	}
 
 	@Override
 	public void pegarPena(Mario mario) {
 		// TODO Auto-generated method stub
-		
+		mario.setEstado(new MarioVoador());
 	}
 
 	@Override
 	public void sofrerDano(Mario mario) {
 		// TODO Auto-generated method stub
-		
+		mario.setEstado(new MarioMorto());
 	}
 
 	@Override
 	public String obterAtque() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Salto";
 	}
 
 	@Override
 	public String obterEstado() {
 		// TODO Auto-generated method stub
-		return null;
+		return "Mario pequeno";
 	}
 
 }
