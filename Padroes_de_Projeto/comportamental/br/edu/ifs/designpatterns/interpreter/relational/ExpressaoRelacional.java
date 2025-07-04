@@ -16,4 +16,10 @@ public abstract class ExpressaoRelacional<T extends Comparable<? super T>> exten
 		this.termo2 = termo2;
 	}
 
+	public ExpressaoRelacional(Variavel<T> termo1, Variavel<T> termo2) {
+		super();
+		this.termo1 = termo1;
+		this.termo2 = termo2;
+	}
+
 }
