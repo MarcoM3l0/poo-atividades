@@ -14,12 +14,14 @@ public class ExpressaoSequencial extends ExpressaoNaoTerminal {
 	@Override
 	public boolean interpretar() {
 		// TODO Auto-generated method stub
+		
+		
 		for(Expressao e : super.expressoes) {
-			if(e.interpretar())
-				return true;
+			if(!e.interpretar())
+				return  false;
 		}
 		
-		return false;
+		return true;
 	}
 
 	public void addExpressao(Executavel executavel) {
