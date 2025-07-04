@@ -18,4 +18,9 @@ public class DesligarLuz implements Comando {
 		this.luz.desligar();
 	}
 
+	@Override
+	public String toString() {
+		return "desligar " + this.luz.getNome();
+	}
+
 }

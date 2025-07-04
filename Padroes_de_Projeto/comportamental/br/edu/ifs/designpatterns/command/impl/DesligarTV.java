@@ -17,4 +17,9 @@ public class DesligarTV implements Comando {
 		this.tv.desligar();
 	}
 
+	@Override
+	public String toString() {
+		return "desligar " + this.tv.getNome();
+	}
+
 }

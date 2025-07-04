@@ -18,4 +18,9 @@ public class LigarTV implements Comando{
 		this.tv.ligar();
 	}
 
+	@Override
+	public String toString() {
+		return "ligar " + this.tv.getNome();
+	}
+
 }
