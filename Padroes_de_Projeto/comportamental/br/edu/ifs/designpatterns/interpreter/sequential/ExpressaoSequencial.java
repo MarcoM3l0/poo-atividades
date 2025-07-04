@@ -29,4 +29,15 @@ public class ExpressaoSequencial extends ExpressaoNaoTerminal {
 		super.expressoes.add(executavel);
 	}
 
+	@Override
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for(Expressao expressao : super.expressoes)
+			sb.append("\t").append(expressao.toString());
+		
+		return sb.toString();
+	}
+
 }

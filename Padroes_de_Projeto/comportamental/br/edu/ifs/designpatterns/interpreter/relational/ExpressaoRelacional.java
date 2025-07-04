@@ -22,4 +22,9 @@ public abstract class ExpressaoRelacional<T extends Comparable<? super T>> exten
 		this.termo2 = termo2;
 	}
 
+	@Override
+	public String toString() {
+		return this.nome;
+	}
+
 }

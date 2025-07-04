@@ -25,4 +25,16 @@ public class ExpressaoCondicional extends ExpressaoNaoTerminal {
 		return false;
 	}
 
+	@Override
+	public String toString() {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("se ").append(this.relacao).append(" então:\n");
+		sb.append("execute:\n");
+		sb.append(this.expressao.toString());
+		
+		return sb.toString();
+	}
+
 }

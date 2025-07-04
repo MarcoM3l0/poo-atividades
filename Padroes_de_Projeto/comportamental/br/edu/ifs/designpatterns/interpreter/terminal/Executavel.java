@@ -24,5 +24,10 @@ public class Executavel extends ExpressaoTerminal<Comando> {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return this.comando.toString() + "\n";
+	}
 
+	
 }
