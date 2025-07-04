@@ -1,6 +1,7 @@
 package br.edu.ifs.designpatterns.interpreter.sequential;
 
 import br.edu.ifs.designpatterns.interpreter.ExpressaoNaoTerminal;
+import br.edu.ifs.designpatterns.interpreter.terminal.Executavel;
 
 public class ExpressaoSequencial extends ExpressaoNaoTerminal {
 
@@ -13,6 +14,11 @@ public class ExpressaoSequencial extends ExpressaoNaoTerminal {
 	public boolean interpretar() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public void addExpressao(Executavel executavel) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class ExpressaoNaoTerminal extends Expressao {
 	
-	private List<Expressao> expressoes = new ArrayList<>();
+	protected List<Expressao> expressoes = new ArrayList<>();
 
 	public ExpressaoNaoTerminal() {
 		super();
