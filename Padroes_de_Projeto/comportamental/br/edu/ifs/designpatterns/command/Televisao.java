@@ -5,9 +5,11 @@ public class Televisao {
 	
 	private boolean ligada;
 	private int canal;
+	private String nome;
 	
 	public Televisao(String nome) {
 		// TODO Auto-generated constructor stub
+		this.nome = nome;
 		this.canal = 1;
 	}
 
@@ -32,5 +34,9 @@ public class Televisao {
 
 	public void setCanal(int canal) {
 		this.canal = canal;
+	}
+
+	public String getNome() {
+		return nome;
 	}
 }
