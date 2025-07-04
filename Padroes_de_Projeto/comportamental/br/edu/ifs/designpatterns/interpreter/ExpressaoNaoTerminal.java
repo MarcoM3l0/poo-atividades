@@ -7,17 +7,16 @@ public abstract class ExpressaoNaoTerminal extends Expressao {
 	
 	private List<Expressao> expressoes = new ArrayList<>();
 
-	public ExpressaoNaoTerminal(List<Expressao> expressoes) {
-		super();
-		this.expressoes = expressoes;
-	}
-
 	public ExpressaoNaoTerminal() {
 		super();
 	}
 
 	public List<Expressao> getExpressoes() {
 		return expressoes;
+	}
+
+	public void setExpressoes(List<Expressao> expressoes) {
+		this.expressoes = expressoes;
 	}
 
 }
